@@ -1,9 +1,12 @@
 # nudion-privacy
 
-Privacy policy for [Nudion](https://apps.apple.com/) — a visual diatonic
+Public pages for [Nudion](https://apps.apple.com/) — a visual diatonic
 accordion app for iPhone and iPad.
 
-Published at: **https://yoyinuma.github.io/nudion-privacy/**
+| Page | URL |
+|---|---|
+| Privacy Policy | https://yoyinuma.github.io/nudion-privacy/ |
+| Support | https://yoyinuma.github.io/nudion-privacy/support.html |
 
-The app collects no personal data. See `index.html` for the full text in
-Spanish and English.
+The app collects no personal data. See `index.html` and `support.html`
+for the full pages in Spanish and English.

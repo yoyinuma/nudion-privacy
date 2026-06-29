@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Soporte — Nudion</title>
+    <meta
+      name="description"
+      content="Soporte para Nudion, la app visual para acordeón diatónico. Preguntas frecuentes y contacto."
+    />
+    <link rel="icon" href="data:," />
+    <style>
+      :root {
+        --bg: #f1f0e8;
+        --surface: #ffffff;
+        --text: #1d1d1f;
+        --muted: #5f5f66;
+        --accent: #c44d3a;
+        --rule: #e5e3da;
+        --code-bg: #ecebe2;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #15161a;
+          --surface: #1d1f24;
+          --text: #f1f0e8;
+          --muted: #a4a4ad;
+          --accent: #ff7a5c;
+          --rule: #2b2d33;
+          --code-bg: #24262c;
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        padding: 40px 20px 80px;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        border-radius: 18px;
+        padding: 40px clamp(20px, 5vw, 56px);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+          0 12px 40px rgba(0, 0, 0, 0.06);
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 28px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .badge {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ff7a5c, #c44d3a);
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: -0.02em;
+        box-shadow: 0 4px 14px rgba(196, 77, 58, 0.35);
+      }
+      .title {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 2px;
+      }
+      h1, h2 {
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 8px 0 6px;
+      }
+      h2 {
+        font-size: 18px;
+        margin: 32px 0 10px;
+      }
+      .updated {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 24px;
+      }
+      p { margin: 0 0 14px; }
+      ul { padding-left: 22px; margin: 0 0 14px; }
+      li { margin-bottom: 6px; }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+      }
+      a:hover { border-bottom-color: var(--accent); }
+      strong { font-weight: 600; }
+      .lang-switch {
+        display: inline-flex;
+        gap: 6px;
+        margin-left: auto;
+        background: var(--code-bg);
+        padding: 4px;
+        border-radius: 999px;
+        font-size: 13px;
+      }
+      .lang-switch a {
+        padding: 4px 12px;
+        border-radius: 999px;
+        border: none;
+        color: var(--muted);
+      }
+      .lang-switch a.active {
+        background: var(--surface);
+        color: var(--text);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      }
+      .contact {
+        display: inline-block;
+        padding: 6px 12px;
+        background: var(--code-bg);
+        border-radius: 8px;
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 14px;
+        border: none;
+        color: var(--text);
+      }
+      .cta {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 10px 18px;
+        background: linear-gradient(135deg, #ff7a5c, #c44d3a);
+        color: #fff;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        border: none;
+        box-shadow: 0 4px 14px rgba(196, 77, 58, 0.35);
+      }
+      .cta:hover { border: none; opacity: 0.95; }
+      details {
+        border-top: 1px solid var(--rule);
+        padding: 14px 0;
+      }
+      details:last-of-type { border-bottom: 1px solid var(--rule); }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        list-style: none;
+        position: relative;
+        padding-right: 24px;
+      }
+      summary::-webkit-details-marker { display: none; }
+      summary::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 1;
+        transition: transform 0.15s ease;
+      }
+      details[open] summary::after { content: "−"; }
+      details > *:not(summary) { margin-top: 10px; }
+      section[hidden] { display: none; }
+      footer {
+        max-width: 720px;
+        margin: 24px auto 0;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: center;
+      }
+      footer a {
+        color: var(--muted);
+        border-bottom: 1px solid color-mix(in srgb, var(--muted) 35%, transparent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="badge" aria-hidden="true">N</div>
+        <div>
+          <div class="title">Nudion</div>
+          <div class="subtitle">Acordeón diatónico · iPhone &amp; iPad</div>
+        </div>
+        <nav class="lang-switch" aria-label="Idioma">
+          <a href="#es" id="lang-es" class="active">ES</a>
+          <a href="#en" id="lang-en">EN</a>
+        </nav>
+      </header>
+
+      <section id="es" lang="es">
+        <h1>Soporte</h1>
+        <p class="updated">Última actualización: 29 de junio de 2026</p>
+
+        <p>
+          ¿Tienes una duda, encontraste un fallo, o quieres pedir una
+          funcionalidad nueva? Escríbenos y te respondemos lo antes posible
+          (normalmente en 1-2 días hábiles).
+        </p>
+
+        <p>
+          <a class="cta" href="mailto:yoyinuma@gmail.com?subject=Soporte%20Nudion">Escribir a soporte</a>
+        </p>
+
+        <h2>Preguntas frecuentes</h2>
+
+        <details>
+          <summary>¿Para qué tipo de acordeón sirve Nudion?</summary>
+          <p>
+            Nudion está pensado para el acordeón diatónico de 3 hileras y
+            31 botones (estilo Hohner Corona III), el más usado en
+            vallenato, norteño, conjunto, merengue típico y géneros
+            relacionados. Puedes configurar la afinación de tus tres
+            hileras en la pestaña <strong>Configuración</strong>.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Cómo cambio la afinación de mi acordeón?</summary>
+          <p>
+            Abre la pestaña <strong>Configuración</strong> (icono de
+            engranaje) y elige tu afinación de la lista de presets en
+            cuarta (FBE, GCF, ADG, etc.). El cambio se aplica al
+            instante en todas las pantallas.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Por qué no aparece el badge "hilera cómoda" en Transporte?</summary>
+          <p>
+            Asegúrate de tener configurada la afinación en la pestaña
+            <strong>Configuración</strong>. El badge te indica si la
+            tonalidad de destino cae en una de tus tres hileras o si
+            queda fuera. Si actualizaste recientemente, reinicia la app
+            una vez.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Puedo usar Nudion sin conexión a Internet?</summary>
+          <p>
+            Sí. Nudion funciona 100% sin Internet — no se conecta a
+            ningún servidor, no descarga datos y no necesita cuenta.
+            Todo se guarda localmente en tu dispositivo.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Mis canciones se sincronizan entre iPhone y iPad?</summary>
+          <p>
+            En la versión actual las canciones se guardan localmente en
+            cada dispositivo, así que no se sincronizan automáticamente
+            entre iPhone y iPad. Estamos trabajando en sincronización vía
+            iCloud para una versión futura.
+          </p>
+        </details>
+
+        <details>
+          <summary>¿Nudion reproduce sonido?</summary>
+          <p>
+            No. Nudion es una herramienta <strong>visual</strong>: te
+            muestra dónde van los acordes, escalas e intervalos en tu
+            diapasón. El sonido lo pones tú con tu acordeón.
+          </p>
+        </details>
+
+        <details>
+          <summary>Encontré un error o quiero pedir una función nueva</summary>
+          <p>
+            ¡Genial, gracias por ayudarnos a mejorar! Escríbenos a
+            <a href="mailto:yoyinuma@gmail.com?subject=Reporte%20Nudion">yoyinuma@gmail.com</a>
+            indicando: el modelo de tu iPhone/iPad, la versión de iOS y
+            de Nudion, y los pasos para reproducir el problema.
+          </p>
+        </details>
+
+        <h2>Contacto directo</h2>
+        <p>
+          <a class="contact" href="mailto:yoyinuma@gmail.com">yoyinuma@gmail.com</a>
+        </p>
+      </section>
+
+      <section id="en" lang="en" hidden>
+        <h1>Support</h1>
+        <p class="updated">Last updated: June 29, 2026</p>
+
+        <p>
+          Got a question, found a bug, or want to request a new feature?
+          Reach out and we'll get back to you as soon as possible (usually
+          within 1-2 business days).
+        </p>
+
+        <p>
+          <a class="cta" href="mailto:yoyinuma@gmail.com?subject=Nudion%20Support">Email support</a>
+        </p>
+
+        <h2>Frequently asked questions</h2>
+
+        <details>
+          <summary>What kind of accordion is Nudion for?</summary>
+          <p>
+            Nudion is designed for the 3-row, 31-button diatonic
+            accordion (Hohner Corona III style), the most common
+            instrument in vallenato, norteño, conjunto, merengue típico
+            and related genres. You can set your three-row tuning in the
+            <strong>Settings</strong> tab.
+          </p>
+        </details>
+
+        <details>
+          <summary>How do I change my accordion's tuning?</summary>
+          <p>
+            Open the <strong>Settings</strong> tab (gear icon) and pick
+            your tuning from the list of fourth-interval presets (FBE,
+            GCF, ADG, etc.). The change applies instantly across all
+            views.
+          </p>
+        </details>
+
+        <details>
+          <summary>Why isn't the "comfortable row" badge showing in Transpose?</summary>
+          <p>
+            Make sure you have a tuning configured in
+            <strong>Settings</strong>. The badge tells you whether the
+            target key falls on one of your three rows or is outside
+            your tuning. If you've just updated, restart the app once.
+          </p>
+        </details>
+
+        <details>
+          <summary>Does Nudion work offline?</summary>
+          <p>
+            Yes. Nudion runs 100% offline — it doesn't connect to any
+            server, doesn't download data, and doesn't require an
+            account. Everything is stored locally on your device.
+          </p>
+        </details>
+
+        <details>
+          <summary>Do my songs sync between iPhone and iPad?</summary>
+          <p>
+            In the current version, songs are stored locally on each
+            device, so they don't sync automatically between iPhone and
+            iPad. iCloud sync is on the roadmap for a future release.
+          </p>
+        </details>
+
+        <details>
+          <summary>Does Nudion play sound?</summary>
+          <p>
+            No. Nudion is a <strong>visual</strong> tool: it shows you
+            where chords, scales and intervals live on your fretboard.
+            The sound comes from your actual accordion.
+          </p>
+        </details>
+
+        <details>
+          <summary>I found a bug or want to request a feature</summary>
+          <p>
+            Awesome, thanks for helping us improve! Write to
+            <a href="mailto:yoyinuma@gmail.com?subject=Nudion%20Report">yoyinuma@gmail.com</a>
+            and include: your iPhone/iPad model, iOS version, Nudion
+            version, and the steps to reproduce the issue.
+          </p>
+        </details>
+
+        <h2>Direct contact</h2>
+        <p>
+          <a class="contact" href="mailto:yoyinuma@gmail.com">yoyinuma@gmail.com</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 Jorge Núñez · Nudion ·
+      <a href="./">Privacy Policy</a>
+    </footer>
+
+    <script>
+      (function () {
+        const sections = { es: document.getElementById('es'), en: document.getElementById('en') };
+        const links = { es: document.getElementById('lang-es'), en: document.getElementById('lang-en') };
+        function show(lang) {
+          if (!sections[lang]) lang = 'es';
+          for (const key of Object.keys(sections)) {
+            sections[key].hidden = key !== lang;
+            links[key].classList.toggle('active', key === lang);
+          }
+          document.documentElement.lang = lang;
+        }
+        function fromHash() {
+          const h = (location.hash || '').replace('#', '');
+          show(h === 'en' ? 'en' : 'es');
+        }
+        window.addEventListener('hashchange', fromHash);
+        fromHash();
+      })();
+    </script>
+  </body>
+</html>
